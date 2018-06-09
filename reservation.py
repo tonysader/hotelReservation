@@ -8,8 +8,10 @@ def addToReservationList(hotelName,customer):
 class Customer:
 	def __init__(self):
 		self.customer_name = ""
-	def set(self,name):
+		self.mobileNumber = ""
+	def set(self,name,mobileNumber):
 		self.customer_name = name
+		self.mobileNumber = mobileNumber
 		customersList.append(self)
 
 class Hotel:
@@ -81,7 +83,8 @@ def main():
 	hotel1 = add_hotel(1,"hotel1", "Paris",32,6)
 	hotel2 = add_hotel(2,"hotel2", "Cairo",42,7)
 	customer1 = Customer()
-	customer1.set("Tony")
+	#not real mobile number
+	customer1.set("Tony","+5324214")
 	add_new_reservation(hotel1,customer1)
 	list_hotels_in_city("Paris")
 	list_resevrations_for_hotel("hotel1")
