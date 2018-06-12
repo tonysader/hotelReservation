@@ -12,10 +12,13 @@ class Customer:
 	def __init__(self):
 		self.customer_name = ""
 		self.mobileNumber = ""
-	def set(self,name,mobileNumber):
+		self.email = ""
+	def set(self,name,mobileNumber,email):
 		self.customer_name = name
 		self.mobileNumber = mobileNumber
+		self.email = email
 		customersList.append(self)
+
 
 class Hotel:
 	def __init__(self):
