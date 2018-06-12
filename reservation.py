@@ -69,11 +69,11 @@ def reserve_room (hotel, customer):
     return hotel.reserve_room(customer)
 def add_new_reservation(hotel, customer):
     	if reserve_room(hotel, customer):
-    		subject = "Hotel reservation"
-			msg = "Hello there, your reservation has successfuly completed, Hope you enjoy!"
+			subject = "Hotel reservation"
+			msg = "Hello there your reservation has successfuly completed, Hope you enjoy!"
 			recieverEmail = customer.email
 			sendEmail(subject,msg,recieverEmail) 
-    		print ("confirmation")
+			print ("confirmation")
     	else:
    	    	print ("sorry no rooms available")
 
