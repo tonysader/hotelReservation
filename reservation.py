@@ -1,3 +1,6 @@
+import smtplib
+import conf
+
 hotelsList = []
 customersList = []
 reservationList = []
@@ -78,6 +81,19 @@ def list_resevrations_for_hotel(hotel_name):
     	if hotel_name == hotel.hotel_name:
     		for reservation in reservationList:
     			print(reservation[1])
+
+def sendEmail(subject,msg,recieverEmail):
+	try:
+		server = smtplib.SMTP('smtp.gmail.com:587')
+		server.ehlo()
+		server.starttls()
+		server.login(conf.email,conf.pas)
+		message = 'Subject: {}    {}'.format(subject,msg)
+		server.sendmail(conf.email, recieverEmail ,message)
+		server.quit()
+		print("Email was sent successfuly")
+	except:
+		print("Error in sending the email")
 
 def main():
 	hotel1 = add_hotel(1,"hotel1", "Paris",32,6)
