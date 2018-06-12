@@ -68,7 +68,11 @@ def reserve_room (hotel, customer):
     #          return True
     return hotel.reserve_room(customer)
 def add_new_reservation(hotel, customer):
-    	if reserve_room(hotel, customer): 
+    	if reserve_room(hotel, customer):
+    		subject = "Hotel reservation"
+			msg = "Hello there, your reservation has successfuly completed, Hope you enjoy!"
+			recieverEmail = customer.email
+			sendEmail(subject,msg,recieverEmail) 
     		print ("confirmation")
     	else:
    	    	print ("sorry no rooms available")
@@ -103,7 +107,7 @@ def main():
 	hotel2 = add_hotel(2,"hotel2", "Cairo",42,7)
 	customer1 = Customer()
 	#not real mobile number
-	customer1.set("Tony","+5324214")
+	customer1.set("Tony","+5324214","tony.dx.3379@gmail.com")
 	add_new_reservation(hotel1,customer1)
 	list_hotels_in_city("Paris")
 	list_resevrations_for_hotel("hotel1")
