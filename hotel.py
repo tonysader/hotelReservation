@@ -20,10 +20,16 @@ class Hotel:
 			return True
 		else:
 			return False
-	def reserve_room (self, customer):
-		if self.thereIsRoom() == True:
-			self.empty_rooms -= 1
-			addToReservationList(self.hotel_name,customer.customer_name)
-			return True
-		else:
-			return False
+	@staticmethod
+	def list_hotels_in_city(city_name):
+	    # search for city in hotels and print hotel name, total number of rooms if found
+	    for hotel in hotelsList:
+	        if hotel.city == city_name:
+	            print(hotel.hotel_name,hotel.total_rooms)
+	@staticmethod
+	def list_resevrations_for_hotel(hotel_name):
+	    # search for hotel_name in reservation list and print customer name
+	    for hotel in hotelsList:
+	    	if hotel_name == hotel.hotel_name:
+	    		for reservation in reservationList:
+	    			print(reservation[1])
