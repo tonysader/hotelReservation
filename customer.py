@@ -1,3 +1,5 @@
+customersList = []
+
 class Customer:
 	def __init__(self):
 		self.customer_name = ""

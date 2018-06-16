@@ -1,3 +1,4 @@
+reservationList = []
 class Reversation :
 	def __init__(self, hotel,customer):
 		self.hotel = hotel

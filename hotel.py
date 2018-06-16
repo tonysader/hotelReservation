@@ -1,5 +1,6 @@
-
-
+import customer
+import reversation
+hotelsList = []
 class Hotel:
 	def __init__(self):
 		self.number = 0
@@ -7,7 +8,7 @@ class Hotel:
 		self.city = ""
 		self.total_rooms = 0
 		self.empty_rooms =0
-		self.customer = Customer()
+		self.customer = customer.Customer()
 	def set(self,number,hotel_name, city,total_rooms,empty_rooms):
 		self.number = number
 		self.hotel_name = hotel_name
@@ -31,5 +32,5 @@ class Hotel:
 	    # search for hotel_name in reservation list and print customer name
 	    for hotel in hotelsList:
 	    	if hotel_name == hotel.hotel_name:
-	    		for reservation in reservationList:
-	    			print(reservation[1])
+	    		for r in reversation.reservationList:
+	    			print(r[1])

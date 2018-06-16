@@ -1,35 +1,33 @@
 import smtplib
 import conf
-import hotel
+import Hotel
 import customer
 import sendEmail
 import reversation
+import Person
 
 
-hotelsList = []
-customersList = []
-reservationList = []
+
 
 
 def add_hotel(number,hotel_name, city,total_rooms,empty_rooms):
-	h = Hotel()
+	h = Hotel.Hotel()
 	h.set(number,hotel_name,city,total_rooms,empty_rooms)
 	return h
 
 def add_customer(customer_name,mobile,email):
-    # add customer_name to customers list
-    c = Customer()
+    c = customer.Customer()
     c.set(customer_name,mobile,email)
     return c
 
-def add_new_reservation(hotel, customer):
+def add_new_reservation(hotelTo, customerTo):
 
-    reversation = Reversation()
-    if reversation.reserveOperation(hotel, customer):
+    r = reversation.Reversation(hotelTo,customerTo)
+    if r.reserveOperation():
 		subject = "Hotel reservation"
 		msg = "Hello there your reservation has successfuly completed, Hope you enjoy!"
-		recieverEmail = customer.email
-		Email.sendEmail(subject,msg,recieverEmail)
+		recieverEmail = customerTo.email
+		sendEmail.Email.sendEmail(subject,msg,recieverEmail)
 		print ("confirmation")
     else:
         print ("sorry no rooms available")
@@ -39,7 +37,7 @@ def main():
 	hotel2 = add_hotel(2,"hotel2", "Cairo",42,7)
 	customer1 = add_customer("Tony","+5324214","tony.dx.3379@gmail.com"); # Fake mobileNumber
 	add_new_reservation(hotel1,customer1)
-	Hotel.list_hotels_in_city("Paris")
-	Hotel.list_resevrations_for_hotel("hotel1")
+	Hotel.Hotel.list_hotels_in_city("Paris")
+	Hotel.Hotel.list_resevrations_for_hotel("hotel1")
 
 main()

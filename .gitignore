@@ -1,2 +1,3 @@
 testToDelete.py
 conf.py
+*.pyc
