@@ -1,5 +1,9 @@
 import smtplib
 import conf
+import hotel
+import customer
+import sendEmail
+
 
 hotelsList = []
 customersList = []
@@ -11,10 +15,10 @@ def add_hotel(number,hotel_name, city,total_rooms,empty_rooms):
 	h.set(number,hotel_name,city,total_rooms,empty_rooms)
 	return h
 
-def add_customer(customer_name):
+def add_customer(customer_name,mobile,email):
     # add customer_name to customers list
     c = Customer()
-    c.setCustomer(customer_name)
+    c.set(customer_name,mobile,email)
     return c
 
 def addToReservationList(hotelName,customer):
@@ -26,7 +30,7 @@ def add_new_reservation(hotel, customer):
 			subject = "Hotel reservation"
 			msg = "Hello there your reservation has successfuly completed, Hope you enjoy!"
 			recieverEmail = customer.email
-			sendEmail(subject,msg,recieverEmail)
+			Email.sendEmail(subject,msg,recieverEmail)
 			print ("confirmation")
     	else:
    	    	print ("sorry no rooms available")
