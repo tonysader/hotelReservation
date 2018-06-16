@@ -5,9 +5,6 @@ hotelsList = []
 customersList = []
 reservationList = []
 
-def addToReservationList(hotelName,customer):
-	subList = [hotelName,customer]
-	reservationList.append(subList)
 
 def add_hotel(number,hotel_name, city,total_rooms,empty_rooms):
 	h = Hotel()
@@ -19,6 +16,11 @@ def add_customer(customer_name):
     c = Customer()
     c.setCustomer(customer_name)
     return c
+
+def addToReservationList(hotelName,customer):
+	subList = [hotelName,customer]
+	reservationList.append(subList)
+
 def add_new_reservation(hotel, customer):
     	if hotel.reserve_room(customer):
 			subject = "Hotel reservation"
@@ -41,18 +43,7 @@ def list_resevrations_for_hotel(hotel_name):
     		for reservation in reservationList:
     			print(reservation[1])
 
-def sendEmail(subject,msg,recieverEmail):
-	try:
-		server = smtplib.SMTP('smtp.gmail.com:587')
-		server.ehlo()
-		server.starttls()
-		server.login(conf.email,conf.pas)
-		message = 'Subject: {}    {}'.format(subject,msg)
-		server.sendmail(conf.email, recieverEmail ,message)
-		server.quit()
-		print("Email was sent successfuly")
-	except:
-		print("Error in sending the email")
+
 
 def main():
 	hotel1 = add_hotel(1,"hotel1", "Paris",32,6)
