@@ -9,28 +9,18 @@ def addToReservationList(hotelName,customer):
 	subList = [hotelName,customer]
 	reservationList.append(subList)
 
-
-
 def add_hotel(number,hotel_name, city,total_rooms,empty_rooms):
 	h = Hotel()
 	h.set(number,hotel_name,city,total_rooms,empty_rooms)
 	return h
+
 def add_customer(customer_name):
     # add customer_name to customers list
     c = Customer()
     c.setCustomer(customer_name)
     return c
-def reserve_room (hotel, customer):
-    	# loop and check if there is empty_rooms in hotel_name
-    # if no rooms,
-    #     return False
-    # else reserve a new room in hotel_name for customer_name
-    #         add new reservation into the reservation list
-    #          update the empty rooms in hotel_name
-    #          return True
-    return hotel.reserve_room(customer)
 def add_new_reservation(hotel, customer):
-    	if reserve_room(hotel, customer):
+    	if hotel.reserve_room(customer):
 			subject = "Hotel reservation"
 			msg = "Hello there your reservation has successfuly completed, Hope you enjoy!"
 			recieverEmail = customer.email
