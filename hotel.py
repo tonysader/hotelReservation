@@ -1,7 +1,7 @@
 import customer
-import reservation
-hotelsList = []
+
 class Hotel:
+	hotelsList = []
 	def __init__(self):
 		self.number = 0
 		self.hotel_name = ""
@@ -15,7 +15,7 @@ class Hotel:
 		self.city = city
 		self.total_rooms = total_rooms
 		self.empty_rooms =empty_rooms
-		hotelsList.append(self)
+		Hotel.hotelsList.append(self)
 	def thereIsRoom(self):
 		if self.empty_rooms > 0:
 			return True
@@ -24,13 +24,12 @@ class Hotel:
 	@staticmethod
 	def list_hotels_in_city(city_name):
 	    # search for city in hotels and print hotel name, total number of rooms if found
-	    for hotel in hotelsList:
+	    for hotel in Hotel.hotelsList:
 	        if hotel.city == city_name:
-	            print(hotel.hotel_name,hotel.total_rooms)
+	            print "Hotel Name: " , hotel.hotel_name , " Hotel Total Rooms", hotel.total_rooms
 	@staticmethod
-	def list_resevrations_for_hotel(hotel_name):
+	def list_resevrations_for_hotel(hotel_nameToSearch,revList):
 	    # search for hotel_name in reservation list and print customer name
-	    for hotel in hotelsList:
-	    	if hotel_name == hotel.hotel_name:
-	    		for r in reservation.reservationList:
-	    			print(r[1])
+		for h in revList:
+			if h[0].hotel_name == hotel_nameToSearch:
+				print "Hotel Name: " , h[0].hotel_name , " --> Customer Name:" , h[1].customer_name

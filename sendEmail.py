@@ -8,8 +8,7 @@ class Email:
     		server.ehlo()
     		server.starttls()
     		server.login(conf.email,conf.pas)
-    		message = 'Subject: {}    {}'.format(subject,msg)
-    		server.sendmail(conf.email, recieverEmail ,message)
+    		server.sendmail(conf.email, recieverEmail ,msg)
     		server.quit()
     		print("Email was sent successfuly")
     	except:

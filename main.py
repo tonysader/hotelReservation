@@ -38,6 +38,7 @@ def main():
 	customer1 = add_customer("Tony","+5324214","tony.dx.3379@gmail.com"); # Fake mobileNumber
 	add_new_reservation(hotel1,customer1)
 	Hotel.Hotel.list_hotels_in_city("Paris")
-	Hotel.Hotel.list_resevrations_for_hotel("hotel1")
+	revList = reservation.Reversation.getRevList()
+	Hotel.Hotel.list_resevrations_for_hotel("hotel1",revList)
 
 main()
