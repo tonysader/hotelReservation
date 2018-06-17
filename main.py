@@ -3,7 +3,7 @@ import conf
 import Hotel
 import customer
 import sendEmail
-import reversation
+import reservation
 import Person
 
 
@@ -22,7 +22,7 @@ def add_customer(customer_name,mobile,email):
 
 def add_new_reservation(hotelTo, customerTo):
 
-    r = reversation.Reversation(hotelTo,customerTo)
+    r = reservation.Reversation(hotelTo,customerTo)
     if r.reserveOperation():
 		subject = "Hotel reservation"
 		msg = "Hello there your reservation has successfuly completed, Hope you enjoy!"
